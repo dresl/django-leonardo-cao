@@ -8,6 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 from leonardo import messages
 from leonardo import leonardo
 from leonardo.views import *
+import local_settings
 
 from ..models import Page
 from .dimension.forms import PageDimensionForm
@@ -113,6 +114,7 @@ class PageUpdateView(ModalFormView):
         context = super(PageUpdateView, self).get_context_data(**kwargs)
         # add extra context for template
         context['url'] = self.request.build_absolute_uri()
+        context['settings'] = local_settings
         context['modal_header'] = smart_text(
             _("Update Page") + ' %s' % self.object)
         context['form_submit'] = _("Update Page")

@@ -14,7 +14,7 @@ from .. import settings as filer_settings
 from filer.utils.compatibility import python_2_unicode_compatible
 from filer.utils.loader import load_object
 import mptt
-
+from django.template.defaultfilters import slugify
 
 class FolderManager(models.Manager):
 
@@ -161,7 +161,7 @@ class Folder(models.Model, mixins.IconsMixin):
 
     @property
     def pretty_logical_path(self):
-        return "/%s" % "/".join([f.name for f in self.logical_path + [self]])
+        return "/%s" % "/".join([slugify(f.name) for f in self.logical_path + [self]])
 
     @property
     def quoted_logical_path(self):

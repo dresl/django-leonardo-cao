@@ -17,7 +17,7 @@ Django-Select2==5.2.0
 python-app-loader>=0.0.8
 docutils==0.12
 django-pyscss>=1.0.3
-django-filer==1.0.6
+django-filer==3.3.0
 django-markupfield==1.4.3
 django-haystack==2.5
 
